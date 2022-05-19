@@ -22,11 +22,11 @@
 
 ### 解题思路
 
-<img src="C:\Users\郎艺璇\AppData\Roaming\Typora\typora-user-images\image-20220519180655293.png" alt="image-20220519180655293" style="zoom: 80%;" />
+<img src="https://s2.loli.net/2022/05/19/3zraZg5XWTkb1fC.png" alt="image-20220519180655293" style="zoom: 80%;" />
 
-*对两数相加方法的可视化：*![[公式]](https://www.zhihu.com/equation?tex=342+%2B+465+%3D+807) *，每个节点都包含一个数字，并且数字按位逆序存储。*
+*对两数相加方法的可视化：**342 + 465 = 807**，每个节点都包含一个数字，并且数字按位逆序存储。*
 
-就像你在纸上计算两个数字的和那样，我们首先从最低有效位也就是列表 ![[公式]](https://www.zhihu.com/equation?tex=+l1+) 和 ![[公式]](https://www.zhihu.com/equation?tex=+l2+) 的表头开始相加。由于每位数字都应当处于 ![[公式]](https://www.zhihu.com/equation?tex=+0%E2%80%A69+) 的范围内，我们计算两个数字的和时可能会出现 “溢出”。例如， ![[公式]](https://www.zhihu.com/equation?tex=5+%2B+7+%3D+12) 。在这种情况下，我们会将当前位的数值设置为 ![[公式]](https://www.zhihu.com/equation?tex=2) ，并将进位 ![[公式]](https://www.zhihu.com/equation?tex=+carry+%3D+1+) 带入下一次迭代。进位 ![[公式]](https://www.zhihu.com/equation?tex=+carry+) 必定是 ![[公式]](https://www.zhihu.com/equation?tex=0) 或 ![[公式]](https://www.zhihu.com/equation?tex=1) ，这是因为两个数字相加（考虑到进位）可能出现的最大和为 ![[公式]](https://www.zhihu.com/equation?tex=+9+%2B+9+%2B+1+%3D+19) 。
+就像你在纸上计算两个数字的和那样，我们首先从最低有效位也就是列表 `l1`和 `l2`的表头开始相加。由于每位数字都应当处于 `0......9` 的范围内，我们计算两个数字的和时可能会出现 “溢出”。例如， **5 + 7** 。在这种情况下，我们会将当前位的数值设置为 **2**，并将进位 `carry = 1 `带入下一次迭代。进位 `carry` 必定是 `0 或 1` ，这是因为两个数字相加（考虑到进位)可能出现的最大和为 **9 + 9 + 1 = 19**
 
 ```js
 /**
